@@ -10,8 +10,8 @@ public class Product {
 	private String p_name;
 	private int p_price;
 	private String p_brand;
-	private String main_category;
-	private String small_category;
+	private String p_main_category;
+	private String p_small_category;
 	private String p_img;
 	private int p_qty;
 	private Date p_reg_date;
@@ -20,14 +20,14 @@ public class Product {
 
 	}
 
-	public Product(String p_id, String p_name, int p_price, String p_brand, String main_category, String small_category,
-			String p_img, int p_qty, Date p_reg_date) {
+	public Product(String p_id, String p_name, int p_price, String p_brand, String p_main_category,
+			String p_small_category, String p_img, int p_qty, Date p_reg_date) {
 		this.p_id = p_id;
 		this.p_name = p_name;
 		this.p_price = p_price;
 		this.p_brand = p_brand;
-		this.main_category = main_category;
-		this.small_category = small_category;
+		this.p_main_category = p_main_category;
+		this.p_small_category = p_small_category;
 		this.p_img = p_img;
 		this.p_qty = p_qty;
 		this.p_reg_date = p_reg_date;
@@ -65,20 +65,20 @@ public class Product {
 		this.p_brand = p_brand;
 	}
 
-	public String getMain_category() {
-		return main_category;
+	public String getP_main_category() {
+		return p_main_category;
 	}
 
-	public void setMain_category(String main_category) {
-		this.main_category = main_category;
+	public void setP_main_category(String p_main_category) {
+		this.p_main_category = p_main_category;
 	}
 
-	public String getSmall_category() {
-		return small_category;
+	public String getP_small_category() {
+		return p_small_category;
 	}
 
-	public void setSmall_category(String small_category) {
-		this.small_category = small_category;
+	public void setP_small_category(String p_small_category) {
+		this.p_small_category = p_small_category;
 	}
 
 	public String getP_img() {
@@ -108,7 +108,7 @@ public class Product {
 	@Override
 	public String toString() {
 		return "Product [p_id=" + p_id + ", p_name=" + p_name + ", p_price=" + p_price + ", p_brand=" + p_brand
-				+ ", main_category=" + main_category + ", small_category=" + small_category + ", p_img=" + p_img
+				+ ", p_main_category=" + p_main_category + ", p_small_category=" + p_small_category + ", p_img=" + p_img
 				+ ", p_qty=" + p_qty + ", p_reg_date=" + p_reg_date + "]";
 	}
 

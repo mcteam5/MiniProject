@@ -31,7 +31,7 @@ public class MainController {
 
 	@RequestMapping("/insert.dh")
 	public String insert() {
-		Cust cust = new Cust("id11", "kim", "pw11", "hair", "m", 23, new Date());
+		Cust cust = new Cust("id15", "LEE", "pw14", "hair", "f", 33, new Date());
 		try {
 			biz.register(cust);
 			return "success";
