@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.CustMapper">
+	<resultMap id="custResult" type="cust">
+		<result property="c_id" column="c_id"></result>
+		<result property="c_name" column="c_name"></result>
+		<result property="c_pw" column="c_pw"></result>
+		<result property="c_interest" column="c_interest"></result>
+		<result property="c_sex" column="c_sex"></result>
+		<result property="c_age" column="c_age"></result>
+		<result property="c_signup_date" column="c_signup_date"></result>
+	</resultMap>
+	
+	
+	
+	
+	
+	
+	
+	<select id="select" parameterType="String" resultMap="custResult">
+		SELECT *
+		FROM CUST WHERE ID=#{id}
+	</select>
+	<select id="selectall" resultMap="custResult">
+		SELECT * FROM CUST
+	</select>
+	<insert id="insert" parameterType="cust">
+		INSERT INTO CUST VALUES
+		(#{id},#{pw},#{name},#{age})
+	</insert>
+	<update id="update" parameterType="cust">
+		UPDATE CUST SET
+		PW=#{pw},NAME=#{name},AGE=#{age} WHERE ID=#{id}
+	</update>
+	<delete id="delete" parameterType="String">
+		DELETE FROM CUST WHERE
+		ID=#{id}
+	</delete>
+
+</mapper>
+
+
+
+
+
+
