@@ -636,6 +636,8 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 .header-v4 .fix-menu-desktop.container-menu-desktop {
+	background-color: black;
+  border-color: black;
   height: 110px;
 }
 
