@@ -88,7 +88,7 @@
 			<div class="wrap-icon-header flex-w flex-r-m h-full">
 				<div class="flex-c-m h-full p-r-25 bor6">
 					<div
-						class="icon-header-item cl0 hov-cl1 trans-04 p-lr-11 js-show-cart"
+						class="icon-header-item cl0 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart"
 						data-notify="3">
 						<i class="zmdi zmdi-shopping-cart"></i>
 					</div>
@@ -97,7 +97,7 @@
 				<div class="flex-c-m h-full p-lr-19">
 					<div
 						class="icon-header-item cl0 hov-cl1 trans-04 p-lr-11 js-show-sidebar">
-						<a href="login.jsp"><i class="zmdi zmdi-menu"></i></a>
+						<a href="logout.dh"><i class="zmdi zmdi-close-circle-o"></i></a>
 					</div>
 				</div>
 			</div>
@@ -130,7 +130,6 @@
 		</div>
 	</div>
 
-
 	<!-- Menu Mobile -->
 	<div class="menu-mobile">
 		<ul class="main-menu-m">
@@ -153,22 +152,8 @@
 			<i class="zmdi zmdi-close"></i>
 		</button>
 
-		<form class="container-search-header">
-			<div class="wrap-search-header">
-				<input class="plh0" type="text" name="search"
-					placeholder="Search...">
-
-				<button class="flex-c-m trans-04">
-					<i class="zmdi zmdi-search"></i>
-				</button>
-			</div>
-		</form>
 	</div>
 	</header>
-
-
-	<!-- Sidebar -->
-
 
 	<!-- Cart -->
 	<div class="wrap-header-cart js-panel-cart">
@@ -237,8 +222,6 @@
 			</div>
 		</div>
 	</div>
-
-
 
 	<!-- Slider -->
 	<section class="section-slide">
@@ -349,10 +332,6 @@
 		</div>
 	</div>
 
-
-
-
-
 	<!-- Footer -->
 	<footer class="bg3 p-t-75 p-b-32">
 	<div class="container">
@@ -407,19 +386,20 @@
 			<div class="col-sm-6 col-lg-3 p-b-50">
 				<h4 class="stext-301 cl0 p-b-30">Newsletter</h4>
 
-				<form action="#" method="post">
-					<div class="wrap-input1 w-full p-b-4">
-						<input class="input1 bg-none plh1 stext-107 cl7" type="text"
-							placeholder="email@example.com">
-						<div class="focus-input1 trans-04"></div>
-					</div>
+				<div class="wrap-input1 w-full p-b-4">
+					<input class="input1 bg-none plh1 stext-107 cl7" type="text"
+						placeholder="email@example.com">
+					<div class="focus-input1 trans-04"></div>
+				</div>
 
-					<div class="p-t-18">
+				<div class="p-t-18">
+					<form>
 						<button
 							class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
-							Subscribe</button>
-					</div>
-				</form>
+							<a href="main_login.dh"> Subscribe</a>
+						</button>
+					</form>
+				</div>
 			</div>
 		</div>
 

@@ -23,6 +23,10 @@ public class MainController {
 	public String main() {
 		return "main";
 	}
+	@RequestMapping("/main_login.dh")
+	public String main_login() {
+		return "main_login";
+	}
 
 	@RequestMapping("/first.dh")
 	public String first() {
@@ -42,28 +46,37 @@ public class MainController {
 
 	}
 
-	@RequestMapping("/login.dh")
+	@RequestMapping("/loginimp.dh")
 	public ModelAndView loginimp(HttpServletRequest request) {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("main");
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 		Cust dbcust = null;
 		try {
 			dbcust = (Cust) biz.get(id);
+			System.out.println(dbcust);
 			if (dbcust.getC_pw().equals(pw)) {
 				HttpSession session = request.getSession();
 				session.setAttribute("login_cust", dbcust);
-				mv.addObject("center", "loginok");
+				mv.setViewName("main_login");
 			} else {
-				mv.addObject("center", "loginfail");
+				mv.setViewName("loginfail");
 			}
 		} catch (Exception e) {
-			mv.addObject("center", "loginfail");
+			mv.setViewName("loginfail");
 			e.printStackTrace();
 		}
 
 		return mv;
+	}
+
+	@RequestMapping("/logout.dh")
+	public String logout(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		if (session != null) {
+			session.invalidate();
+		}
+		return "main";
 	}
 
 }
