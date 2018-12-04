@@ -41,7 +41,29 @@ public class MainController {
 		}
 
 	}
-	
-	
+
+	@RequestMapping("/login.dh")
+	public ModelAndView loginimp(HttpServletRequest request) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("main");
+		String id = request.getParameter("id");
+		String pw = request.getParameter("pw");
+		Cust dbcust = null;
+		try {
+			dbcust = (Cust) biz.get(id);
+			if (dbcust.getC_pw().equals(pw)) {
+				HttpSession session = request.getSession();
+				session.setAttribute("login_cust", dbcust);
+				mv.addObject("center", "loginok");
+			} else {
+				mv.addObject("center", "loginfail");
+			}
+		} catch (Exception e) {
+			mv.addObject("center", "loginfail");
+			e.printStackTrace();
+		}
+
+		return mv;
+	}
 
 }
