@@ -2,12 +2,16 @@ package com.Cart;
 
 import java.util.ArrayList;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import com.frame.Dao;
 import com.mapper.CartMapper;
 import com.vo.Cart;
 
+@Repository("cartdao")
 public class CartDao implements Dao<String, Cart> {
-
+	@Autowired
 	CartMapper cm;
 
 	@Override

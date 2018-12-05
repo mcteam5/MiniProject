@@ -2,12 +2,17 @@ package com.Cart;
 
 import java.util.ArrayList;
 
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
 import com.frame.Biz;
 import com.frame.Dao;
 import com.vo.Cart;
 
+@Service("cartbiz")
 public class CartBiz implements Biz<String, Cart> {
-
+	@Resource(name = "cartdao")
 	Dao dao;
 
 	public Dao getDao() {

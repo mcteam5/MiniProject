@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.frame.Biz;
+import com.vo.Cart;
 import com.vo.Cust;
 
 @Controller
@@ -19,10 +20,14 @@ public class MainController {
 	@Resource(name = "cbiz")
 	Biz biz;
 
+	@Resource(name = "cartbiz")
+	Biz cartbiz;
+
 	@RequestMapping("/main.dh")
 	public String main() {
 		return "main";
 	}
+
 	@RequestMapping("/main_login.dh")
 	public String main_login() {
 		return "main_login";
@@ -31,6 +36,11 @@ public class MainController {
 	@RequestMapping("/first.dh")
 	public String first() {
 		return "first";
+	}
+
+	@RequestMapping("/login.dh")
+	public String login() {
+		return "login";
 	}
 
 	@RequestMapping("/insert.dh")
@@ -52,13 +62,19 @@ public class MainController {
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 		Cust dbcust = null;
+		Cart cart = null;
+		int cnt = 0;
 		try {
 			dbcust = (Cust) biz.get(id);
-			System.out.println(dbcust);
+			cart = (Cart) cartbiz.get(dbcust.getC_id());
+			cnt = cart.getCart_qty();
 			if (dbcust.getC_pw().equals(pw)) {
 				HttpSession session = request.getSession();
 				session.setAttribute("login_cust", dbcust);
-				mv.setViewName("main_login");
+				mv.setViewName("main");
+				mv.addObject("cart_cnt", cnt);
+				System.out.println(cnt);
+
 			} else {
 				mv.setViewName("loginfail");
 			}

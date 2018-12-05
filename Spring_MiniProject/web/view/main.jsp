@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <head>
 <title>화장품 홈페이지</title>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -87,17 +89,35 @@
 			<!-- Icon header -->
 			<div class="wrap-icon-header flex-w flex-r-m h-full">
 				<div class="flex-c-m h-full p-r-25 bor6">
-					<div
-						class="icon-header-item cl0 hov-cl1 trans-04 p-lr-11 js-show-cart"
-						data-notify="3">
-						<i class="zmdi zmdi-shopping-cart"></i>
-					</div>
+					<c:choose>
+						<c:when test="${login_cust == null } ">
+							<div
+								class="icon-header-item cl0 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart ">
+								<i class="zmdi zmdi-shopping-cart"></i>
+							</div>
+						</c:when>
+						<c:otherwise>
+							<div
+								class="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart"
+								data-notify="${cart_cnt }">
+								<i class="zmdi zmdi-shopping-cart"></i>
+
+							</div>
+						</c:otherwise>
+					</c:choose>
 				</div>
 
 				<div class="flex-c-m h-full p-lr-19">
 					<div
 						class="icon-header-item cl0 hov-cl1 trans-04 p-lr-11 js-show-sidebar">
-						<a href="login.jsp"><i class="zmdi zmdi-menu"></i></a>
+						<c:choose>
+							<c:when test="${login_cust == null }">
+								<a href="login.dh"><i class="zmdi zmdi-menu"></i></a>
+							</c:when>
+							<c:otherwise>
+								<a href="logout.dh"><i class="zmdi zmdi-close-circle-o"></i></a>
+							</c:otherwise>
+						</c:choose>
 					</div>
 				</div>
 			</div>
@@ -715,6 +735,8 @@
 	</script>
 	<!--===============================================================================================-->
 	<script src="js/main.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 </body>
 </html>

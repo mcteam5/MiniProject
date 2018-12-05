@@ -22,7 +22,7 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 		SELECT * FROM CUST
 	</select>
 	<insert id="insert" parameterType="cust">
-		INSERT INTO CUST VALUES
+		INSERT INTO VALUES
 		(#{c_id},#{c_name},#{c_pw},#{c_interest},#{c_sex},#{c_age},#{c_signup_date})
 	</insert>
 	<update id="update" parameterType="cust">

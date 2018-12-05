@@ -14,4 +14,6 @@ public interface CustMapper {
 	public Cust select(String c_id);
 
 	public ArrayList<Cust> selectall();
+
+	public int getProCnt(String c_id);
 }

@@ -62,6 +62,7 @@
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property value="com.mapper" name="basePackage" />
 	</bean>
+	
 </beans>
 
 
